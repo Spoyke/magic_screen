@@ -28,12 +28,12 @@ On obtient : led0 <= not pushl;
 
 3) On trace un schéma correspondant : 
 
-![Image](Schema_led_blink.png)
+![Image](images/Schema_led_blink.png)
 
 
 4) Le schéma proposé par quartus est
 
-![Image](Schema_led_blink_og.png)
+![Image](images/Schema_led_blink_og.png)
 
 Pour générer le signal o_led qui fait clignoter la LED, on utilise une bascule D dont la sortie alterne entre 0 et 1 à la fréquence de l'horloge.
 Notre schéma et celui proposé par quartus sont équivalents et reprennent le même fonctionnement.
@@ -41,12 +41,12 @@ Notre schéma et celui proposé par quartus sont équivalents et reprennent le m
 7) En adaptant la fréquence, on a :
 
 
-![Image](Schema_led_blink_delay1.png)
+![Image](images/Schema_led_blink_delay1.png)
 
 
 8) On a le nouveau schéma sur RTL Viewer:
 
-![Image](Schema_led_blink_delay_og.jpg)
+![Image](images/Schema_led_blink_delay_og.jpg)
 
 On utilise un compteur pour diviser la fréquence 50Mhz en quelque chose de plus petit (ici notre compteur est sur 23 bits car cela permet de coder 5Mhz). La première bascule renvoie la valeur du compteur. Celle-ci est incrémenté en amont par l'opérateur Add0. En aval, on compare la valeur du comparateur avec 5 millions. Si c'est le cas, on change la valeur de la sortie o_led et on reinitialise le compteur avec le multiplexeur.
 Pour comparer les schémas, le fonctionnement reste globalement le même sauf que le notre est une représentation plus conceptuelle.
@@ -85,7 +85,7 @@ Le code a été validé.
 
 5) Après avoir fait les modifications nécessaire, on affiche :
 
-![Image](Display_1.png)
+![Image](images/Display_1.png)
 
 Les bits qui correspondent au rouge sont les bits 23 à 16.
 
@@ -107,7 +107,7 @@ A noter qu'il n'y a pas de limitations sur la valeurs des encodeurs. Ainsi, si l
 
 2) Voici un schéma pour le fonctionnement de la RAM:
 
-![Image](Ram.png)
+![Image](images/Ram.png)
 
 3 et 4) On connecte le composants dpram créé à des signaux créé pour ce composant. Puis, pour écrire ou lire des données dans la RAM, on crée 2 process. 
 
@@ -117,7 +117,7 @@ Dans le second process, on lit en permanance les données stockées dans la RAM 
 
 6) On a bien la mémorisation
 
-![Image](Capture_memorisation.png)
+![Image](images/Capture_memorisation.png)
 
 ## 6 - Effacement 
 
